@@ -22,4 +22,10 @@
         <item>Husky</item>
         <item>Lab</item>
     </string-array>
+
+    <string-array name="ID_array">
+        <item>K39BD3L</item>
+        <item>MM30R54</item>
+        <item>Q94JFFD9</item>
+    </string-array>
 </resources>
