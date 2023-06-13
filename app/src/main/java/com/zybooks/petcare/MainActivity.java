@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SubmitClick(View view) {
+        boolean AllConditionsMet= true;
         String email = EditEmail.getText().toString();
 
         if(PetReg.checkEmail(email)) {
@@ -102,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             Email.setTextColor(colorRed);
+            AllConditionsMet = false;
+            Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show();
         }
 
         int accessCode = 0, confirmCode=0;
@@ -123,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
         if(EAccessCode.isEmpty() || EConfirmCode.isEmpty()) {
             AccessCode.setTextColor(colorRed);
             ConfirmCode.setTextColor(colorRed);
+            AllConditionsMet = false;
+            Toast.makeText(this, "Codes do no match", Toast.LENGTH_SHORT).show();
         }
         else if(PetReg.checkCode(accessCode, confirmCode))
         {
@@ -134,6 +139,12 @@ public class MainActivity extends AppCompatActivity {
         {
             AccessCode.setTextColor(colorRed);
             ConfirmCode.setTextColor(colorRed);
+            Toast.makeText(this, "Codes do no match", Toast.LENGTH_SHORT).show();
+            AllConditionsMet = false;
+        }
+        if(AllConditionsMet)
+        {
+            Toast.makeText(this, "Data has been saved!", Toast.LENGTH_SHORT).show();
         }
 
 
