@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:visibility="visible">
 
     <TextView
         android:id="@+id/care"
@@ -33,69 +34,69 @@
         style="@style/base"
         android:layout_marginTop="50dp"
         android:text="@string/microchip_id"
-        app:layout_constraintTop_toBottomOf="@id/pet_registration_form"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pet_registration_form" />
 
     <EditText
         android:id="@+id/edit_microchip"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        app:layout_constraintLeft_toRightOf="@id/microchip_id"
-        app:layout_constraintBaseline_toBaselineOf="@id/microchip_id"
-        android:inputType="text"
-        android:textAllCaps="false"
         android:hint="ID"
+        android:inputType="text"
         android:text=""
+        android:textAllCaps="false"
+        app:layout_constraintBaseline_toBaselineOf="@id/microchip_id"
+        app:layout_constraintLeft_toRightOf="@id/microchip_id"
 
         />
 
 
     <TextView
-        style="@style/base"
         android:id="@+id/name"
+        style="@style/base"
         android:text="@string/name"
-        app:layout_constraintTop_toBottomOf="@id/microchip_id"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/microchip_id" />
 
     <EditText
         android:id="@+id/edit_name"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        app:layout_constraintLeft_toRightOf="@id/name"
-        app:layout_constraintBaseline_toBaselineOf="@id/name"
         android:inputType="textAutoCorrect|textPersonName"
-        android:text="" />
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@id/name"
+        app:layout_constraintLeft_toRightOf="@id/name" />
 
     <TextView
         android:id="@+id/gender"
         style="@style/base"
-        app:layout_constraintTop_toBottomOf="@id/name"
+        android:text="@string/gender"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/gender" />
-    
+        app:layout_constraintTop_toBottomOf="@id/name" />
+
     <RadioGroup
         android:id="@+id/gender_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/edit_name"
-        app:layout_constraintLeft_toRightOf="@id/gender">
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toRightOf="@id/gender"
+        app:layout_constraintTop_toBottomOf="@id/edit_name">
 
         <RadioButton
             android:id="@+id/radio_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/male"
-            android:onClick="onRadioButtonSelected" />
+            android:onClick="onRadioButtonSelected"
+            android:text="@string/male" />
 
         <RadioButton
             android:id="@+id/radio_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/female"
             android:checked="true"
-            android:onClick="onRadioButtonSelected" />
+            android:onClick="onRadioButtonSelected"
+            android:text="@string/female" />
 
 
     </RadioGroup>
@@ -103,84 +104,84 @@
     <TextView
         android:id="@+id/email_address"
         style="@style/base"
-        app:layout_constraintTop_toBottomOf="@id/gender"
+        android:text="@string/email_address"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/email_address" />
+        app:layout_constraintTop_toBottomOf="@id/gender" />
 
     <EditText
         android:id="@+id/edit_email_address"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintLeft_toRightOf="@id/name"
-        app:layout_constraintBaseline_toBaselineOf="@id/email_address"
-        android:inputType="textEmailAddress"
         android:hint="@string/none_none_com"
-        android:text=""/>
+        android:inputType="textEmailAddress"
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@id/email_address"
+        app:layout_constraintLeft_toRightOf="@id/name" />
 
     <TextView
         android:id="@+id/access_code"
         style="@style/base"
-        app:layout_constraintTop_toBottomOf="@id/email_address"
+        android:text="@string/access_code"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/access_code" />
+        app:layout_constraintTop_toBottomOf="@id/email_address" />
 
     <EditText
         android:id="@+id/edit_access_code"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintLeft_toRightOf="@id/access_code"
-        app:layout_constraintBaseline_toBaselineOf="@id/access_code"
         android:inputType="numberPassword"
-        android:text="" />
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@id/access_code"
+        app:layout_constraintLeft_toRightOf="@id/access_code" />
 
     <TextView
         android:id="@+id/confirm_code"
         style="@style/base"
-        app:layout_constraintTop_toBottomOf="@id/access_code"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint=""
         android:text="@string/confirm_code"
-        android:hint=""/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/access_code" />
 
     <EditText
         android:id="@+id/edit_confirm_code"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintLeft_toRightOf="@id/name"
-        app:layout_constraintBaseline_toBaselineOf="@id/confirm_code"
-        android:inputType="numberPassword"
         android:hint=""
-        android:text="" />
+        android:inputType="numberPassword"
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@id/confirm_code"
+        app:layout_constraintLeft_toRightOf="@id/name" />
 
     <TextView
         android:id="@+id/breed"
         style="@style/base"
-        app:layout_constraintTop_toBottomOf="@id/confirm_code"
+        android:text="@string/breed"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/breed" />
+        app:layout_constraintTop_toBottomOf="@id/confirm_code" />
 
     <Spinner
         android:id="@+id/select_breed"
-        android:layout_marginTop="12dp"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintLeft_toRightOf="@id/breed"
         app:layout_constraintTop_toBottomOf="@id/edit_confirm_code" />
 
     <TextView
         android:id="@+id/neutered"
         style="@style/base"
-        app:layout_constraintTop_toBottomOf="@id/breed"
+        android:text="@string/neutered"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/neutered" />
+        app:layout_constraintTop_toBottomOf="@id/breed" />
 
     <CheckBox
         android:id="@+id/is_neutered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/is_neutered"
         android:checked="true"
-        app:layout_constraintLeft_toLeftOf="@id/select_breed"
-        app:layout_constraintBaseline_toBaselineOf="@id/neutered" />
+        android:text="@string/is_neutered"
+        app:layout_constraintBaseline_toBaselineOf="@id/neutered"
+        app:layout_constraintLeft_toLeftOf="@id/select_breed" />
 
     <Button
         android:id="@+id/reset_button"
@@ -188,20 +189,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/reset"
         android:background="@color/gray"
         android:onClick="ResetClicked"
-        app:layout_constraintTop_toBottomOf="@id/is_neutered"
-        app:layout_constraintLeft_toLeftOf="@id/is_neutered" />
+        android:text="@string/reset"
+        app:layout_constraintLeft_toLeftOf="@id/is_neutered"
+        app:layout_constraintTop_toBottomOf="@id/is_neutered" />
 
     <Button
         android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="@string/submit"
         android:background="@color/gray"
         android:onClick="SubmitClick"
+        android:text="@string/submit"
         app:layout_constraintBaseline_toBaselineOf="@id/reset_button"
         app:layout_constraintLeft_toRightOf="@id/is_neutered" />
 
