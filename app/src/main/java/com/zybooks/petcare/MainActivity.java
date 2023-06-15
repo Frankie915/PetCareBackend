@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView ConfirmCode;
     private CheckBox IsNeutered;
 
-    private ArrayList<String> IDs;
+    private String[] IDs;
     private int colorRed, colorGray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
         PetReg = new PetRegistration();
 
+        IDs = getResources().getStringArray(R.array.ID_array);
+
         colorRed = getColor(R.color.red); //error color
         colorGray = getColor(R.color.gray); //default color
 
         EditMicrochip = findViewById(R.id.edit_microchip);
+        Microchip = findViewById(R.id.microchip_id);
         EditName = findViewById(R.id.edit_name);
         RadButton =findViewById(R.id.radio_female);
 
@@ -96,6 +99,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void SubmitClick(View view) {
         boolean AllConditionsMet= true;
+
+        String microchip = EditMicrochip.getText().toString();
+        if(PetReg.checkMicrochip(microchip, IDs))
+            Microchip.setTextColor(colorGray);
+        else {
+            Microchip.setTextColor(colorRed);
+            AllConditionsMet = false;
+            Toast.makeText(this, "Invalid Microchip Entered", Toast.LENGTH_SHORT).show();
+        }
         String email = EditEmail.getText().toString();
 
         if(PetReg.checkEmail(email)) {
@@ -117,10 +129,6 @@ public class MainActivity extends AppCompatActivity {
             confirmCode = Integer.parseInt(EConfirmCode);
         }
         catch (NumberFormatException x) {}
-
-
-
-
 
 
         if(EAccessCode.isEmpty() || EConfirmCode.isEmpty()) {
