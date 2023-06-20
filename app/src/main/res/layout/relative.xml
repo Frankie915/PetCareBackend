@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/care"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/pet_care"
+        android:textSize="15sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/pet_registration_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/pet_registration_form"
+        android:textSize="20sp"
+        android:layout_below="@id/care"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/microchip_id"
+        style="@style/base"
+        android:layout_marginTop="50dp"
+        android:text="@string/microchip_id"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/pet_registration_form" />
+
+    <EditText
+        android:id="@+id/edit_microchip"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:hint="ID"
+        android:inputType="text"
+        android:text=""
+        android:textAllCaps="false"
+        android:layout_toEndOf="@id/microchip_id"
+        android:layout_alignBaseline="@id/microchip_id" />
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/base"
+        android:text="@string/name"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/microchip_id" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:inputType="textAutoCorrect|textPersonName"
+        android:text=""
+        android:layout_alignBaseline="@id/name"
+        android:layout_toEndOf="@id/name" />
+
+    <TextView
+        android:id="@+id/gender"
+        style="@style/base"
+        android:text="@string/gender"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/name"/>
+
+    <RadioGroup
+        android:id="@+id/gender_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="13dp"
+        android:layout_below="@id/edit_name"
+        android:layout_toEndOf="@id/gender">
+
+        <RadioButton
+            android:id="@+id/radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonSelected"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onRadioButtonSelected"
+            android:text="@string/female" />
+
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/email_address"
+        style="@style/base"
+        android:text="@string/email_address"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/gender" />
+
+    <EditText
+        android:id="@+id/edit_email_address"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="@string/none_none_com"
+        android:inputType="textEmailAddress"
+        android:text=""
+        android:layout_toEndOf="@id/email_address"
+        android:layout_alignBaseline="@id/email_address" />
+
+    <TextView
+        android:id="@+id/access_code"
+        style="@style/base"
+        android:text="@string/access_code"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/email_address" />
+
+    <EditText
+        android:id="@+id/edit_access_code"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:inputType="numberPassword"
+        android:text=""
+        android:layout_toEndOf="@id/access_code"
+        android:layout_alignBaseline="@id/access_code" />
+
+    <TextView
+        android:id="@+id/confirm_code"
+        style="@style/base"
+        android:hint=""
+        android:text="@string/confirm_code"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/access_code" />
+
+    <EditText
+        android:id="@+id/edit_confirm_code"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint=""
+        android:inputType="numberPassword"
+        android:text=""
+        android:layout_toRightOf="@id/confirm_code"
+        android:layout_alignBaseline="@id/confirm_code" />
+
+    <TextView
+        android:id="@+id/breed"
+        style="@style/base"
+        android:text="@string/breed"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/confirm_code"/>
+
+    <Spinner
+        android:id="@+id/select_breed"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/breed"
+        android:layout_below="@id/edit_confirm_code" />
+
+    <TextView
+        android:id="@+id/neutered"
+        style="@style/base"
+        android:text="@string/neutered"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/breed" />
+
+    <CheckBox
+        android:id="@+id/is_neutered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/is_neutered"
+        android:layout_toRightOf="@id/neutered"
+        android:layout_alignBaseline="@id/neutered" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/gray"
+        android:onClick="ResetClicked"
+        android:text="@string/reset"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/neutered"/>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@color/gray"
+        android:onClick="SubmitClick"
+        android:text="@string/submit"
+        android:layout_toRightOf="@id/reset_button"
+        android:layout_alignBaseline="@id/reset_button"/>
+
+
+</RelativeLayout>
