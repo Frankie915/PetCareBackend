@@ -1,18 +1,12 @@
 package com.zybooks.petcare;
 
+import android.widget.EditText;
 import android.widget.Toast;
-
-
-import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Entity
-public class PetRegistration {
 
+public class PetRegistration {
     public boolean checkMicrochip(String microchip, String[] list)
     {
         if(!regex(microchip, "^[A-Z0-9]{5,15}$"))
