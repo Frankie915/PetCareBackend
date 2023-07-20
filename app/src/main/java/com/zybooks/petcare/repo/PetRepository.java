@@ -1,6 +1,8 @@
 package com.zybooks.petcare.repo;
 
 import android.content.Context;
+
+import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 import com.zybooks.petcare.Model.PetInfo;
 import java.util.List;
@@ -49,6 +51,14 @@ public class PetRepository {
         petForm = new PetInfo();
         petForm.setMicrochipID("09NFEWN23D");
         mPetInfoDao.addRegistration(petForm);
+    }
+
+    public void addPetForm(PetInfo form) {
+        mPetInfoDao.addRegistration(form);
+    }
+
+    public List<String> getIDs() {
+        return mPetInfoDao.getIDs();
     }
 
 }

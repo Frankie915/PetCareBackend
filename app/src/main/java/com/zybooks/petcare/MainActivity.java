@@ -1,7 +1,7 @@
 package com.zybooks.petcare;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Application;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -14,6 +14,10 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.List;
+
+import com.zybooks.petcare.Model.PetInfo;
+import com.zybooks.petcare.repo.PetRepository;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
@@ -38,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView ConfirmCode;
     private CheckBox IsNeutered;
 
-    private String[] IDs;
+    private List<String> IDs;
+
+    private PetRepository mPetRepo;
     private int colorRed, colorGray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         PetReg = new PetRegistration();
 
-        IDs = getResources().getStringArray(R.array.ID_array);
+        mPetRepo = PetRepository.getInstance(getApplicationContext());
+        IDs = getIDs();
 
         colorRed = getColor(R.color.red); //error color
         colorGray = getColor(R.color.gray); //default color
@@ -78,6 +85,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void onRadioButtonSelected(View view) {
 
+    }
+
+    public List<String> getIDs() {
+        return mPetRepo.getIDs();
+    }
+
+    public void addSubject(PetInfo petForm) {
+        mPetRepo.addPetForm(petForm);
     }
 
     public void ResetClicked(View view) {
@@ -152,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(AllConditionsMet)
         {
+
             Toast.makeText(this, "Data has been saved!", Toast.LENGTH_SHORT).show();
         }
 
