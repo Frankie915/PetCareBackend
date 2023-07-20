@@ -2,12 +2,14 @@ package com.zybooks.petcare;
 
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 public class PetRegistration {
-    public boolean checkMicrochip(String microchip, String[] list)
+    public boolean checkMicrochip(String microchip, List<String> list)
     {
         if(!regex(microchip, "^[A-Z0-9]{5,15}$"))
         {
