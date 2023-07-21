@@ -15,6 +15,9 @@ public class PetInfo {
     @ColumnInfo(name = "name")
     private String mName;
 
+    @ColumnInfo(name = "gender")
+    private String mGender;
+
     @ColumnInfo(name = "email")
     private String mEmail;
 
@@ -25,13 +28,16 @@ public class PetInfo {
     private long mAccessCode;
 
     @ColumnInfo(name = "isNeutered")
-    private boolean mIsNeutered;
+    private String mIsNeutered;
 
     public void setMicrochipID(String chipID){mMicrochipID = chipID;}
     public String getMicrochipID(){return mMicrochipID;}
 
     public void setName(String name){mName = name;}
     public String getName(){return mName;}
+
+    public void setGender(String gender){mGender = gender;}
+    public String getGender(){return mGender;}
 
     public void setEmail(String email){mEmail = email;}
     public String getEmail(){return mEmail;}
@@ -42,6 +48,6 @@ public class PetInfo {
     public void setAccessCode(long accessCode){mAccessCode = accessCode;}
     public long getAccessCode(){return mAccessCode;}
 
-    public void setIsNeutered(boolean isNeutered){mIsNeutered = isNeutered;}
-    public boolean getIsNeutered(){return mIsNeutered;}
+    public void setIsNeutered(String isNeutered){mIsNeutered = isNeutered;}
+    public String getIsNeutered(){return mIsNeutered;}
 }

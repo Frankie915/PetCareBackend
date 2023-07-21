@@ -19,7 +19,7 @@ public class PetRepository {
     }
 
     private PetRepository(Context context) {
-        PetDatabase database = Room.databaseBuilder(context, PetDatabase.class, "pet.db")
+        PetDatabase database = Room.databaseBuilder(context, PetDatabase.class, "pet4.db")
                 .allowMainThreadQueries()
                 .build();
 

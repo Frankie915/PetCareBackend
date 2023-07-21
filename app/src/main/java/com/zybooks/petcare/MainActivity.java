@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         return mPetRepo.getIDs();
     }
 
-    public void addSubject(PetInfo petForm) {
+    public void addPetForm(PetInfo petForm) {
         mPetRepo.addPetForm(petForm);
     }
 
@@ -168,7 +168,27 @@ public class MainActivity extends AppCompatActivity {
         if(AllConditionsMet)
         {
 
+            PetInfo petForm = new PetInfo();
+            petForm.setMicrochipID(EditMicrochip.getText().toString());
+            petForm.setName(EditName.getText().toString());
+            String gender;
+            if(RadButton == findViewById(R.id.radio_female))
+                gender = "Female";
+            else
+                gender = "Male";
+            petForm.setGender(gender);
+            petForm.setBreed(spinner.getSelectedItem().toString());
+            petForm.setEmail(EditEmail.getText().toString());
+            petForm.setAccessCode(Long.parseLong(EditAccessCode.getText().toString()));
+            String neutered;
+            if(IsNeutered.isChecked())
+                neutered = "Yes";
+            else
+                neutered = "No";
+            petForm.setIsNeutered(neutered);
+            addPetForm(petForm);
             Toast.makeText(this, "Data has been saved!", Toast.LENGTH_SHORT).show();
+            IDs = getIDs();
         }
 
 
