@@ -28,11 +28,12 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinner;
     private TextView Microchip;
     private EditText EditMicrochip;
-    private TextView Name;
+
     private EditText EditName;
-    private TextView Gender;
     private RadioButton RadButton;
     private RadioGroup GenderRadioGroup;
+
+    private String Gender;
     private EditText EditEmail;
     private TextView Email;
     private EditText EditAccessCode;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView ConfirmCode;
     private CheckBox IsNeutered;
-
+    private String Neutered;
     private List<String> IDs;
 
     private PetRepository mPetRepo;
@@ -62,8 +63,9 @@ public class MainActivity extends AppCompatActivity {
         EditMicrochip = findViewById(R.id.edit_microchip);
         Microchip = findViewById(R.id.microchip_id);
         EditName = findViewById(R.id.edit_name);
-        RadButton =findViewById(R.id.radio_female);
 
+        RadButton = findViewById(R.id.radio_female);
+        RadButton.setChecked(true);
         GenderRadioGroup = findViewById(R.id.gender_group);
         EditEmail = findViewById(R.id.edit_email_address);
         Email = findViewById(R.id.email_address);
@@ -80,11 +82,23 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        IsNeutered.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked)
+                Neutered = "Yes";
+            else
+                Neutered = "No";
+        });
 
-    }
-
-    public void onRadioButtonSelected(View view) {
-
+        GenderRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            if(checkedId == R.id.radio_male) {
+                RadButton = findViewById(R.id.radio_male);
+                Gender = "Male";
+            }
+            else {
+                RadButton = findViewById(R.id.radio_female);
+                Gender = "Female";
+            }
+        });
     }
 
     public List<String> getIDs() {
@@ -171,21 +185,11 @@ public class MainActivity extends AppCompatActivity {
             PetInfo petForm = new PetInfo();
             petForm.setMicrochipID(EditMicrochip.getText().toString());
             petForm.setName(EditName.getText().toString());
-            String gender;
-            if(RadButton == findViewById(R.id.radio_female))
-                gender = "Female";
-            else
-                gender = "Male";
-            petForm.setGender(gender);
+            petForm.setGender(Gender);
             petForm.setBreed(spinner.getSelectedItem().toString());
             petForm.setEmail(EditEmail.getText().toString());
             petForm.setAccessCode(Long.parseLong(EditAccessCode.getText().toString()));
-            String neutered;
-            if(IsNeutered.isChecked())
-                neutered = "Yes";
-            else
-                neutered = "No";
-            petForm.setIsNeutered(neutered);
+            petForm.setIsNeutered(Neutered);
             addPetForm(petForm);
             Toast.makeText(this, "Data has been saved!", Toast.LENGTH_SHORT).show();
             IDs = getIDs();

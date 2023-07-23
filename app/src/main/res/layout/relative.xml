@@ -78,7 +78,6 @@
             android:id="@+id/radio_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonSelected"
             android:text="@string/male" />
 
         <RadioButton
@@ -86,7 +85,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:onClick="onRadioButtonSelected"
             android:text="@string/female" />
 
 
