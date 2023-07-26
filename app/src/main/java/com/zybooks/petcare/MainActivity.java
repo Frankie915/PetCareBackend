@@ -133,9 +133,9 @@ public class MainActivity extends AppCompatActivity {
         if(PetReg.checkMicrochip(microchip, IDs))
             Microchip.setTextColor(colorGray);
         else {
-            Microchip.setTextColor(colorRed);
+            //Microchip.setTextColor(colorRed);
             AllConditionsMet = false;
-            Toast.makeText(this, "Invalid Microchip Entered", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error: Chip already exists", Toast.LENGTH_SHORT).show();
         }
         String email = EditEmail.getText().toString();
 
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             Email.setTextColor(colorRed);
             AllConditionsMet = false;
-            Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show();
         }
 
         int accessCode = 0, confirmCode=0;
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             AccessCode.setTextColor(colorRed);
             ConfirmCode.setTextColor(colorRed);
             AllConditionsMet = false;
-            Toast.makeText(this, "Codes do no match", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Codes do no match", Toast.LENGTH_SHORT).show();
         }
         else if(PetReg.checkCode(accessCode, confirmCode))
         {
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
         {
             AccessCode.setTextColor(colorRed);
             ConfirmCode.setTextColor(colorRed);
-            Toast.makeText(this, "Codes do no match", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Codes do no match", Toast.LENGTH_SHORT).show();
             AllConditionsMet = false;
         }
         if(AllConditionsMet)
