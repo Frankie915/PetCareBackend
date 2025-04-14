@@ -9,6 +9,6 @@ such as a microchip ID that already exists in the list array, or that does not h
 
 PetCareBackend takes it a step further by adding a database to that app and putting the
 microchip IDs that were in the string array into the database. When the list is needed to compare
-the microchips IDs in the database to the one entered, a query that grabs the Microchip ID coloumn
+the microchips IDs in the database to the one entered, a query that grabs the Microchip ID column
 from the PetInfo entity is used. Once you hit submit, if valid data was entered in the required boxes,
 then your registration will be saved to the database.
